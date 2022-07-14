@@ -20,9 +20,9 @@ class MyHomePage extends ConsumerWidget {
         "demo header"; // config your dio headers globally
     final client = RestClient(dio);
 
-    client.getTasks().then((it) {
+    client.getStudent({'uid': studentId}).then((it) {
       logger.i(it);
-      ref.read(studentProvider.state).state = Student(name: "fetched");
+      ref.read(studentProvider.state).state = it.first;
     });
   }
 
